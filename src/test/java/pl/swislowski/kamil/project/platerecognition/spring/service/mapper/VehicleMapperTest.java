@@ -7,8 +7,6 @@ import pl.swislowski.kamil.project.platerecognition.spring.web.model.VehicleMode
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class VehicleMapperTest {
 
     public static final long ID = 1L;
@@ -45,7 +43,33 @@ class VehicleMapperTest {
     }
 
     @Test
-    void fromModel() {
-        //TODO: Dokończyć analogicznie jak powyżej.
+    void givenModelAndMapper_whenMapFromModel_thenEntityNotNull() {
+        //given:
+        VehicleModel vehicleModel = new VehicleModel();
+        VehicleMapper vehicleMapper = new VehicleMapper();
+        //when:
+        Optional<VehicleEntity> optionalVehicleEntity = vehicleMapper.fromModel(vehicleModel);
+        //then:
+        VehicleEntity vehicleEntity = null;
+        if (optionalVehicleEntity.isPresent()) {
+            vehicleEntity = optionalVehicleEntity.get();
+        }
+        Assertions.assertNotNull(vehicleEntity, "VehicleEntity not null.");
+    }
+
+    @Test
+    void givenModelAndMapper_whenMapFromModel_thenEntityValuesNotNull() {
+        //given:
+        VehicleModel vehicleModel = new VehicleModel();
+        vehicleModel.setId(ID);
+        VehicleMapper vehicleMapper = new VehicleMapper();
+        //when:
+        Optional<VehicleEntity> optionalVehicleEntity = vehicleMapper.fromModel(vehicleModel);
+        //then:
+        VehicleEntity vehicleEntity = null;
+        if (optionalVehicleEntity.isPresent()) {
+            vehicleEntity = optionalVehicleEntity.get();
+        }
+        Assertions.assertEquals(ID, vehicleEntity.getId(), "Ids aren't equal.");
     }
 }

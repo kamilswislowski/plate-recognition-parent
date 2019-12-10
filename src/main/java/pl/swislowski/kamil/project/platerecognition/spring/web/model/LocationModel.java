@@ -7,12 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleModel {
+public class LocationModel {
 
     private Long id;
 
-    private RegistrationPlateModel registrationPlate;
-
-    private LocationModel location;
-
+    private GpsCoordinatesModel gpsCoordinates;
 }

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +15,10 @@ public class RegistrationPlateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "LOCATION_ID")
+    private LocationEntity location;
 
     private String registrationNumber;
 
@@ -35,10 +41,19 @@ public class RegistrationPlateEntity {
         this.registrationNumber = registrationNumber;
     }
 
+    public LocationEntity getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationEntity location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "RegistrationPlateEntity{" +
                 "id=" + id +
+                ", location=" + location +
                 ", registrationNumber='" + registrationNumber + '\'' +
                 '}';
     }

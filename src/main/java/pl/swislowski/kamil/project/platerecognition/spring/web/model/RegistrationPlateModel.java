@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegistrationPlateModel {
+    private Long id;
+
+    private LocationModel location;
 
     private String registrationNumber;
+
+    public RegistrationPlateModel(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
 }

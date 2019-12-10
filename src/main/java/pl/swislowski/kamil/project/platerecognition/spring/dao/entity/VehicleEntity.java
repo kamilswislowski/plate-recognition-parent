@@ -1,5 +1,6 @@
 package pl.swislowski.kamil.project.platerecognition.spring.dao.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,11 @@ public class VehicleEntity {
 
     @OneToOne
     @JoinColumn(name = "REGISTRATION_PLATE_ID")
-    private RegistrationPlateEntity registrationPlateEntity;
+    private RegistrationPlateEntity registrationPlate;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "LOCATION_ID")
+    private LocationEntity location;
 
     public VehicleEntity() {
     }
@@ -31,10 +36,28 @@ public class VehicleEntity {
         this.id = id;
     }
 
+    public RegistrationPlateEntity getRegistrationPlate() {
+        return registrationPlate;
+    }
+
+    public void setRegistrationPlate(RegistrationPlateEntity registrationPlate) {
+        this.registrationPlate = registrationPlate;
+    }
+
+    public LocationEntity getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationEntity location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "VehicleEntity{" +
                 "id=" + id +
+                ", registrationPlate=" + registrationPlate +
+                ", location=" + location +
                 '}';
     }
 }

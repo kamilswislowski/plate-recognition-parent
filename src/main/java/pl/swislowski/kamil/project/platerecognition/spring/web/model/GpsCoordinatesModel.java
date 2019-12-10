@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleModel {
+public class GpsCoordinatesModel {
 
     private Long id;
 
-    private RegistrationPlateModel registrationPlate;
-
-    private LocationModel location;
-
+    private Double altitude;
+    private Double latitude;
+    private Double longitude;
 }
