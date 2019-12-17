@@ -1,12 +1,16 @@
 package pl.swislowski.kamil.project.platerecognition.spring.dao.entity;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "REGISTRATION_PLATES")
@@ -21,6 +25,11 @@ public class RegistrationPlateEntity {
     private LocationEntity location;
 
     private String registrationNumber;
+
+    private String fileName;
+    @Lob
+    @Basic(fetch=LAZY)
+    private byte[] content;
 
     public RegistrationPlateEntity() {
     }
@@ -49,12 +58,29 @@ public class RegistrationPlateEntity {
         this.location = location;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "RegistrationPlateEntity{" +
                 "id=" + id +
                 ", location=" + location +
                 ", registrationNumber='" + registrationNumber + '\'' +
+                ", fileName='" + fileName + '\'' +
                 '}';
     }
 }

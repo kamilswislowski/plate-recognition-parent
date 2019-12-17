@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RegistrationPlateModel {
     private Long id;
-
     private LocationModel location;
-
     private String registrationNumber;
+    private String fileName;
+    private byte[] content;
 
     public RegistrationPlateModel(String registrationNumber) {
         this.registrationNumber = registrationNumber;
