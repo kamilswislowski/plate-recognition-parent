@@ -6,6 +6,7 @@ import pl.swislowski.kamil.project.platerecognition.spring.api.exception.Registr
 import pl.swislowski.kamil.project.platerecognition.spring.dao.entity.RegistrationPlateEntity;
 import pl.swislowski.kamil.project.platerecognition.spring.dao.repository.RegistrationPlateRepository;
 import pl.swislowski.kamil.project.platerecognition.spring.service.mapper.RegistrationPlateMapper;
+import pl.swislowski.kamil.project.platerecognition.spring.web.model.RecognitionRegistrationPlateRequest;
 import pl.swislowski.kamil.project.platerecognition.spring.web.model.RegistrationPlateModel;
 
 import java.util.Optional;

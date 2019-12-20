@@ -1,7 +1,19 @@
+//buildscript {
+//	repositories {
+//		mavenCentral()
+//	}
+//
+//	dependencies {
+//		// this plugin
+//		classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:1.0.1'
+//		// add additional dependencies here if you wish to reference instead of generate them (see example directory)
+//	}
+//}
 plugins {
 	id 'org.springframework.boot' version '2.2.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+//	id 'jsonschema2pojo'
 }
 
 group = 'pl.swislowski.kamil.project.platerecognition.spring'
@@ -29,6 +41,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.5'
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	compile group: 'org.jsonschema2pojo', name: 'jsonschema2pojo-core', version: '1.0.1'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //	runtimeOnly 'com.h2database:h2'
 	runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.193'
