@@ -33,20 +33,6 @@ class RegistrationPlateServiceTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         IOUtils.copy(resource.getInputStream(), outputStream);
         registrationPlateModel.setContent(outputStream.toByteArray());
-//        try {
-//            InputStream inputStream = resource.getInputStream();
-//            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//
-//            byte[] buffor = new byte[512];
-//            while (inputStream.read(buffor) != -1) {
-//                byteArrayOutputStream.write(buffor);
-//            }
-//
-//            byte[] content = byteArrayOutputStream.toByteArray();
-//            registrationPlateModel.setContent(content);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         //when:
         Optional<RegistrationPlateModel> recognizedRegistrationPlateModelOptional = registrationPlateService.recognize(registrationPlateModel, resource);
         RegistrationPlateModel recognizedRegistrationPlateModel = recognizedRegistrationPlateModelOptional.orElse(new RegistrationPlateModel());
