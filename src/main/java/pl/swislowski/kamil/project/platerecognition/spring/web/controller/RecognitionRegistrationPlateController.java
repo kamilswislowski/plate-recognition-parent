@@ -6,14 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import pl.swislowski.kamil.project.platerecognition.spring.api.exception.PlateRecognizerException;
 import pl.swislowski.kamil.project.platerecognition.spring.api.exception.RegistrationPlateException;
-import pl.swislowski.kamil.project.platerecognition.spring.api.exception.RegistrationPlateNoContentException;
 import pl.swislowski.kamil.project.platerecognition.spring.service.RecognitionRegistrationPlateService;
-import pl.swislowski.kamil.project.platerecognition.spring.web.model.RecognitionRegistrationPlateRequest;
 import pl.swislowski.kamil.project.platerecognition.spring.web.model.RegistrationPlateModel;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -29,7 +26,9 @@ public class RecognitionRegistrationPlateController {
     }
 
     @PostMapping(value = "/recognize")
-    public Optional<RegistrationPlateModel> recognize(@RequestParam("upload") MultipartFile upload) throws RegistrationPlateException, IOException {
+    public Optional<RegistrationPlateModel> recognize(@RequestParam("upload") MultipartFile upload)
+            throws RegistrationPlateException, PlateRecognizerException {
+
         RegistrationPlateModel registrationPlateModel = new RegistrationPlateModel();
         registrationPlateModel.setFileName(upload.getOriginalFilename());
 

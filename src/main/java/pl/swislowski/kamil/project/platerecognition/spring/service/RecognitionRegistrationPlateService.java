@@ -2,6 +2,7 @@ package pl.swislowski.kamil.project.platerecognition.spring.service;
 
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import pl.swislowski.kamil.project.platerecognition.spring.api.exception.PlateRecognizerException;
 import pl.swislowski.kamil.project.platerecognition.spring.api.exception.RegistrationPlateException;
 import pl.swislowski.kamil.project.platerecognition.spring.service.mapper.RegistrationPlateMapper;
 import pl.swislowski.kamil.project.platerecognition.spring.service.platerecognizer.model.PlateRecognizerResponse;
@@ -22,9 +23,12 @@ public class RecognitionRegistrationPlateService {
         this.registrationPlateMapper = registrationPlateMapper;
     }
 
-    public Optional<RegistrationPlateModel> recognize(RegistrationPlateModel recognitionRegistrationPlateRequest, Resource resource) throws RegistrationPlateException {
+    public Optional<RegistrationPlateModel> recognize(
+            RegistrationPlateModel recognitionRegistrationPlateRequest,
+            Resource resource) throws RegistrationPlateException, PlateRecognizerException {
+
         PlateRecognizerResponse plateRecognizerResponse = plateRecognizerService.recognize(resource);
         RegistrationPlateModel registrationPlateModel = registrationPlateMapper.fromResponse(plateRecognizerResponse);
-        return registrationPlateService.recognize(registrationPlateModel);
+        return registrationPlateService.recognize(registrationPlateModel, resource);
     }
 }
