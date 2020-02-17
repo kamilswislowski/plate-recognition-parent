@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.equalToIgnoringCase;
 
 
 @SpringBootTest
-class PlateRecognizerServiceTest {
+class APlateRecognizerServiceTest {
 
     private static final String PLATE_NUMBER = "SB8903R";
     private static final String FIAT_TABLICE_JPG = "fiat tablice.jpg";
