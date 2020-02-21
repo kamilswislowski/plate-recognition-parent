@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.equalToIgnoringCase;
 class APlateRecognizerServiceTest {
 
     private static final String PLATE_NUMBER = "SB8903R";
-    private static final String FIAT_TABLICE_JPG = "fiat tablice.jpg";
+    private static final String FIAT_TABLICE_JPG = "fiat_tablice.jpg";
     @Autowired
     private PlateRecognizerService plateRecognizerService;
 

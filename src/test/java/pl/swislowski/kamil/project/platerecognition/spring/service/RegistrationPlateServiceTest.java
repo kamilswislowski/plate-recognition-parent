@@ -18,7 +18,7 @@ import java.util.Optional;
 class RegistrationPlateServiceTest {
 
     private static final String REGISTRATION_NUMBER = "sb8903r";
-    private static final String FIAT_TABLICE_JPG = "fiat tablice.jpg";
+    private static final String FIAT_TABLICE_JPG = "fiat_tablice.jpg";
 
     @Autowired
     private RegistrationPlateService registrationPlateService;
