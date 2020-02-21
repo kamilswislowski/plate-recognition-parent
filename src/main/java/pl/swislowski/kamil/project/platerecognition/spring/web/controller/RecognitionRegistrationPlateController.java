@@ -1,6 +1,7 @@
 package pl.swislowski.kamil.project.platerecognition.spring.web.controller;
 
 import org.springframework.core.io.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,8 @@ public class RecognitionRegistrationPlateController {
     @PostMapping(value = "/recognize")
     public Optional<RegistrationPlateModel> recognize(@RequestParam("upload") MultipartFile upload)
             throws RegistrationPlateException, PlateRecognizerException {
+
+        LOGGER.info("Recognizing a photo.");
 
         RegistrationPlateModel registrationPlateModel = new RegistrationPlateModel();
         registrationPlateModel.setFileName(upload.getOriginalFilename());

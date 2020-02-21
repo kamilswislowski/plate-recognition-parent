@@ -41,7 +41,7 @@ public class RegistrationPlateMapper {
             String filename = plateRecognizerResponse.getFilename();
             registrationPlateModel.setFileName(filename);
             List<Result> results = plateRecognizerResponse.getResults();
-            if (results != null) {
+            if (results != null && results.size() > 0) {
                 Result result = results.get(0);
                 if (result != null) {
                     String plate = result.getPlate();

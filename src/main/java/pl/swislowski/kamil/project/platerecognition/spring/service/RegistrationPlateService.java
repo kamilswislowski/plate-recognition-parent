@@ -33,14 +33,14 @@ public class RegistrationPlateService {
     public Optional<RegistrationPlateModel> recognize(RegistrationPlateModel registrationPlateModel, Resource resource) throws RegistrationPlateException {
         Optional<RegistrationPlateEntity> optionalRegistrationPlateEntity = registrationPlateMapper.fromModel(registrationPlateModel);
         RegistrationPlateEntity registrationPlateEntity = optionalRegistrationPlateEntity.orElseThrow(() -> new NoRegistrationPlateException("No registration plate from request."));
+        try {
+            Session session = (Session) entityManager.getDelegate();
+            Blob blob = session.getLobHelper().createBlob(resource.getInputStream(), resource.contentLength());
+            registrationPlateEntity.setContent(blob);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         RegistrationPlateEntity savedRegistrationPlateEntity = registrationPlateRepository.save(registrationPlateEntity);
-//        try {
-//            Session session = (Session) entityManager.getDelegate();
-////            Blob blob = session.getLobHelper().createBlob(resource.getInputStream(), resource.contentLength());
-//            savedRegistrationPlateEntity.setBlob(blob);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         return registrationPlateMapper.fromEntity(savedRegistrationPlateEntity);
     }
 }

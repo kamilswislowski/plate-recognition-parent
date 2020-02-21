@@ -1,6 +1,5 @@
 package pl.swislowski.kamil.project.platerecognition.spring.dao.entity;
 
-import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import static javax.persistence.FetchType.LAZY;
+import java.sql.Blob;
 
 @Entity
 @Table(name = "REGISTRATION_PLATES")
@@ -28,8 +26,7 @@ public class RegistrationPlateEntity {
 
     private String fileName;
     @Lob
-    @Basic(fetch=LAZY)
-    private byte[] content;
+    private Blob content;
 
     public RegistrationPlateEntity() {
     }
@@ -66,13 +63,21 @@ public class RegistrationPlateEntity {
         this.fileName = fileName;
     }
 
-    public byte[] getContent() {
+    public Blob getContent() {
         return content;
     }
 
-    public void setContent(byte[] content) {
+    public void setContent(Blob content) {
         this.content = content;
     }
+
+    //    public byte[] getContent() {
+//        return content;
+//    }
+//
+//    public void setContent(byte[] content) {
+//        this.content = content;
+//    }
 
     @Override
     public String toString() {
