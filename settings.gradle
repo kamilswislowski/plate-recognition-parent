@@ -9,7 +9,7 @@ pluginManagement {
         }
     }
 }
-rootProject.name = 'plate-recognition-spring'
+rootProject.name = 'plate-recognition-parent'
 include 'plate-recognition-model'
-include 'plate-recognition-spring-x'
+include 'plate-recognition-spring'
 
