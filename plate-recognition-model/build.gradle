@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'pl.swislowski.kamil.project.platerecognition.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+}
+
+repositories {
+    mavenCentral()
+}
