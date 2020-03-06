@@ -16,6 +16,8 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.10'
     }
 }
+task stage(dependsOn: 'bootJar') {
+}
 
 
 
