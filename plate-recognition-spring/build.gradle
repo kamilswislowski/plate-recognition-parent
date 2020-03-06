@@ -32,11 +32,13 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.5'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.10'
     implementation group: 'org.jsonschema2pojo', name: 'jsonschema2pojo-core', version: '1.0.1'
-    runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.193'
+//    runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.193'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    test.useJUnitPlatform()
 }
 
 test {
