@@ -18,9 +18,9 @@ subprojects {
 }
 //task stage(dependsOn: 'bootJar') {
 //}
-task stage() {
-    dependsOn bootJar
-}
+//task stage() {
+//    dependsOn bootJar
+//}
 
 
 
