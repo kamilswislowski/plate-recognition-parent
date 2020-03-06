@@ -1,6 +1,8 @@
 package pl.swislowski.kamil.project.platerecognition.spring.service;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +25,7 @@ class XRecognitionRegistrationPlateServiceTest {
     private RecognitionRegistrationPlateService recognitionRegistrationPlateService;
 
     @Test
+    @Disabled
     void recognize() throws RegistrationPlateException, PlateRecognizerException {
         //given:
         RegistrationPlateModel registrationPlateModel = new RegistrationPlateModel(PLATE_NUMBER);
