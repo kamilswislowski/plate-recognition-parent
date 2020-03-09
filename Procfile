@@ -1,1 +1,1 @@
-web: java -jar build/libs/plate-recognition-spring.jar
+web: java -jar ./plate-recognition-spring/build/libs/plate-recognition-spring.jar
