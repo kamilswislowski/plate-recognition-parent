@@ -47,7 +47,7 @@ dependencies {
 
 bootJar {
 //    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
-    archiveFileName = 'plate-recognition-spring'
+    archiveFileName = 'plate-recognition-spring.jar'
     launchScript()
 }
 
