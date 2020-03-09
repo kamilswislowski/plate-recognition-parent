@@ -1,0 +1,1 @@
+web: java -jar build/libs/plate-recognition-spring-1.0.jar
