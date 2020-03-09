@@ -1,1 +1,1 @@
-web: java -jar ./plate-recognition-spring/build/libs/plate-recognition-spring.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar ./plate-recognition-spring/build/libs/plate-recognition-spring.jar
