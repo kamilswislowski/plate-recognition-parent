@@ -46,6 +46,7 @@ dependencies {
 }
 
 bootJar {
+    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
     launchScript()
 }
 
