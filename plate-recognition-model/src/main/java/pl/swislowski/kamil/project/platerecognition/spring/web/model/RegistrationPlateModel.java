@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class RegistrationPlateModel {
     private Long id;
     private LocationModel location;
+    private String locationLabel;
     private String registrationNumber;
     private String fileName;
     private byte[] content;
